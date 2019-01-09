@@ -14,7 +14,27 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    @IBAction func toggleTab(_ sender: Any) {
+        
+        guard let tabController = self.tabBarController else {
+            return
+        }
+        tabController.tabBar.isHidden = !tabController.tabBar.isHidden
+        tabController.view.setNeedsLayout()
+    }
+    
+    @IBAction func toggleTabFrame(_ sender: Any) {
+        
+        guard let tabController = self.tabBarController else {
+            return
+        }
+        
+        tabController.tabbarHide(isHide: !tabController.tabBar.isHidden)
+    }
 }
 
